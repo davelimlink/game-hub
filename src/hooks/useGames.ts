@@ -3,10 +3,20 @@ import apiClient from "../services/api-client";
 import React from "react";
 import { CanceledError } from "axios";
 
+export interface Platform {
+  id: number
+  name: string
+  slug:string
+}
+
 export interface Game {
   id: number;
   name: string;
   background_image: string;
+  parent_platforms: {platform: Platform}[]
+  //here you cant type a Platform[], instead, its an array of objects where each object has a
+  //property called platform of type Platform.
+  //always check the documentation od the API for correct use of inferfaces
 }
 
 interface FetchGamesResponse {
