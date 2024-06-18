@@ -20,10 +20,10 @@ interface Props {
 const GameCard = ({ game }: Props) => {
   return (
     <>
-      <Card borderRadius={10} overflow={"hidden"}>
+      <Card width="300px" borderRadius={10} overflow={"hidden"}>
         <Image src={getCroppedImageUrl(game.background_image)} />
         <CardBody>
-          <Heading fontSize="1xl">{game.name}</Heading>
+          <Heading fontSize="2xl">{game.name}</Heading>
           <HStack justifyContent="space-between" alignContent="center">
             <PlatformIconList
               platforms={game.parent_platforms.map((p) => p.platform)}
