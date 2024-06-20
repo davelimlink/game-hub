@@ -1,7 +1,4 @@
-import { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
-import React from "react";
-import { CanceledError } from "axios";
+import useData from "./useData";
 
 export interface Platform {
   id: number
@@ -20,12 +17,16 @@ export interface Game {
   //always check the documentation od the API for correct use of inferfaces
 }
 
+/*
 interface FetchGamesResponse {
   count: number;
   results: Game[];
 }
+*/
 
-const useGames = () => {
+const useGames = () => useData<Game>('/games')
+/*
+{
     const [games, setGames] = useState<Game[]>([]);
     const [error, setError] = useState("");
     const [isLoading, setLoading] = useState(false)
@@ -51,5 +52,6 @@ setLoading(true)
 
     return {games, error, isLoading};
 }
+*/
 
 export default useGames

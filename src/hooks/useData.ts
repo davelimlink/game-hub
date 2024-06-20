@@ -1,16 +1,16 @@
-import useData from "./useData";
+import { useEffect, useState } from "react";
+import apiClient from "../services/api-client";
+import { CanceledError } from "axios";
 
-export interface Genre {
-  id: number;
-  name: string;
+
+interface FetchResponse<T> {
+  count: number;
+  results: T[];
 }
 
+const useData = <T>(endpoint: string) => {
 
-const useGenres = () =>  useData<Genre>('/genres')
-
-/*
-{
-    const [genres, setGenres] = useState<Genre[]>([]);
+    const [data, setData] = useState<T[]>([]);
     const [error, setError] = useState("");
     const [isLoading, setLoading] = useState(false)
   
@@ -18,12 +18,12 @@ const useGenres = () =>  useData<Genre>('/genres')
       const controller = new AbortController()// Cancelling handlers
 setLoading(true)
       apiClient
-        .get<FetchGenresResponse>("/genres", {signal: controller.signal})
+        .get<FetchResponse<T>>(endpoint, {signal: controller.signal})
         //what data we get
         //.then is called when the task completes
         .then((res) => {
           setLoading(false)
-          setGenres(res.data.results)}) 
+          setData(res.data.results)}) 
         //.catch is called when anything is wrong while processing our request
         .catch((err) => {
           if (err instanceof CanceledError) return;//If theres a cancel error we return thin block of code.
@@ -33,8 +33,8 @@ setLoading(true)
         }); //to catch an error
     }, []);
 
-    return {genres, error, isLoading};
-}
-*/
+    return {data, error, isLoading};
 
-export default useGenres
+}
+
+export default useData
