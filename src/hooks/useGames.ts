@@ -1,5 +1,5 @@
+import { GameQuery } from "../App";
 import useData from "./useData";
-import { Genre } from "./useGenres";
 
 export interface Platform {
   id: number
@@ -25,12 +25,13 @@ interface FetchGamesResponse {
 }
 */
 
-const useGames = (selectedGenre: Genre | null, selectedPlatform: Platform | null) => useData<Game>("/games", {
+const useGames = (/*selectedGenre: Genre | null, selectedPlatform: Platform | null*/ gameQuery: GameQuery) => useData<Game>("/games", {
   params: {
-    genres: selectedGenre?.id,  
-    parent_platforms: selectedPlatform?.id
+    genres: /*selectedGenre?*/gameQuery.genre?.id,  
+    parent_platforms: /*selectedPlatform?*/gameQuery.platform?.id,
+    ordering: gameQuery.sortOrder
   }}, 
-[selectedGenre?.id, selectedPlatform?.id])
+[/*selectedGenre?.id, selectedPlatform?.id*/gameQuery])
 /*
 {
     const [games, setGames] = useState<Game[]>([]);
