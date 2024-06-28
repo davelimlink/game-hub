@@ -29,7 +29,8 @@ const useGames = (/*selectedGenre: Genre | null, selectedPlatform: Platform | nu
   params: {
     genres: /*selectedGenre?*/gameQuery.genre?.id,  
     parent_platforms: /*selectedPlatform?*/gameQuery.platform?.id,
-    ordering: gameQuery.sortOrder
+    ordering: gameQuery.sortOrder,
+    search: gameQuery.searchText
   }}, 
 [/*selectedGenre?.id, selectedPlatform?.id*/gameQuery])
 /*
