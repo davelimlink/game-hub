@@ -13,6 +13,7 @@ export interface Game {
   background_image: string;
   parent_platforms: {platform: Platform}[]
   metacritic: number
+  rating_top: number
   //here you cant type a Platform[], instead, its an array of objects where each object has a
   //property called platform of type Platform.
   //always check the documentation od the API for correct use of inferfaces
