@@ -19,6 +19,9 @@ const GameGrid = ({ /*selectedGenre, selectedPlatform*/ gameQuery }: Props) => {
   );
   const skeletons = [1, 2, 3, 4, 5, 6];
 
+  //if (error) return <Text>{error}</Text> this optional if you dont want to use the fragment<></>
+  //if you wantjust to the same code as below
+
   return (
     <>
       {error && <Text>{error}</Text>}
