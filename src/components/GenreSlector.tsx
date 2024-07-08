@@ -7,7 +7,6 @@ import {
   MenuButton,
   Menu,
   MenuList,
-  List,
 } from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
