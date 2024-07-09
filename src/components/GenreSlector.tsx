@@ -51,7 +51,9 @@ const GenreSelector = ({ selectedGenre, onSelectGenre }: Props) => {
                   fontSize="sm"
                   onClick={() => onSelectGenre(genre)}
                   fontWeight={genre.id === selectedGenre?.id ? "bolder" : ""}
-                  backgroundColor={genre.id === selectedGenre?.id ? "red" : ""}
+                  _hover={{
+                    color: "red",
+                  }}
                 >
                   {genre.name}
                 </Button>
