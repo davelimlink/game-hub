@@ -37,7 +37,7 @@ const PlatformIconList = ({ platforms }: Props) => {
       {platforms.map((platform) => (
         <Icon
           key={platform.id}
-          as={iconMap[platform.slug]}
+          as={iconMap[platform.slug]} // this is a dynamic key
           color="gray.500"
           boxSize="auto"
         />
